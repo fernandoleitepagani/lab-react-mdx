@@ -1,0 +1,27 @@
+---
+title: Conteúdo que vira interface
+lead: "Um arquivo, dois papéis: metadados para a interface e texto para a página."
+---
+
+## Do arquivo à tela
+
+Este parágrafo vem de `content/paginas/boas-vindas.mdx`. O título e a abertura acima vêm do **frontmatter** deste mesmo arquivo.
+
+1. O leitor encontra a coleção no `cms/estrutura.json`.
+2. O `gray-matter` separa o YAML do corpo.
+3. O Next.js carrega o documento no servidor.
+4. O React monta a página e o `MDXRemote` renderiza este texto.
+
+## Conteúdo com componentes
+
+<Callout title="Experimente no código">
+  Altere este texto e o campo `title` no arquivo MDX. Recarregue a página e observe onde cada mudança aparece.
+</Callout>
+
+O componente `Callout` está registrado em `components/EditorialContent.js`. Ele recebe conteúdo por props e mantém o visual no React.
+
+## Uma imagem também tem endereço
+
+![Diagrama com as etapas MDX, leitor e página React](/content/paginas/boas-vindas/fluxo.svg)
+
+A imagem está em `public/content/paginas/boas-vindas/fluxo.svg`. O prefixo `public` não aparece na URL.

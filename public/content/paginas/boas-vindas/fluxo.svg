@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="160" viewBox="0 0 780 160">
+  <rect width="780" height="160" rx="16" fill="#f0eafa"/>
+  <g fill="#fff" stroke="#6234a1" stroke-width="2"><rect x="25" y="45" width="200" height="70" rx="10"/><rect x="290" y="45" width="200" height="70" rx="10"/><rect x="555" y="45" width="200" height="70" rx="10"/></g>
+  <g fill="#20212a" font-family="sans-serif" font-size="22" text-anchor="middle"><text x="125" y="88">Arquivo MDX</text><text x="390" y="88">Leitor</text><text x="655" y="88">Página React</text><text x="257" y="88">→</text><text x="522" y="88">→</text></g>
+</svg>

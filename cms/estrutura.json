@@ -1,0 +1,15 @@
+{
+  "collections": [
+    {
+      "id": "paginas",
+      "label": "Páginas",
+      "folder": "content/paginas",
+      "extension": "mdx",
+      "fields": [
+        { "name": "title", "label": "Título", "widget": "string" },
+        { "name": "lead", "label": "Abertura", "widget": "text" },
+        { "name": "body", "label": "Conteúdo", "widget": "markdown" }
+      ]
+    }
+  ]
+}
