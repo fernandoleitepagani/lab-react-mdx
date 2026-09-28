@@ -1,6 +1,6 @@
 # Desafio — Uma empresa, seus produtos e sua equipe
 
-A **Aurora Studio**, empresa fictícia de produtos para espaços de trabalho, precisa de uma página institucional. A equipe de comunicação deve conseguir cadastrar produtos, apresentar as pessoas e revisar os textos sem editar componentes React.
+A **Aurora Studio**, empresa fictícia de produtos para espaços de trabalho, precisa de uma página institucional. A equipe de comunicação deve conseguir cadastrar produtos, apresentar as pessoas e revisar os textos pelo Webtech Editor, sem editar componentes React. Modele os arquivos conforme o contrato do editor; a execução e a avaliação local não exigem autenticação no GitHub.
 
 Você pode criar outro nome e identidade visual. Os dados devem ser fictícios. O objetivo é exercitar a arquitetura de conteúdo, não copiar o visual do Webtech.
 
@@ -20,7 +20,7 @@ Crie também `/produtos/[slug]` para exibir o corpo MDX de cada produto. Na home
 | `produtos` | Um arquivo por produto | `name`, `category`, `description`, `image`, `alt` | Descrição detalhada, benefícios ou especificações |
 | `equipe` | Um arquivo por pessoa | `name`, `position`, `image`, `alt` | Biografia curta |
 
-Use `position` para o cargo: no editor consultado, `role` possui opções fixas próprias do Webtech. Imagens podem ser locais e precisam de descrição alternativa adequada. Não é necessário criar preço, compra, carrinho, autenticação ou uma API.
+Use `position` para o cargo: no Webtech Editor, `role` possui opções fixas próprias do Webtech. Imagens podem ser locais e precisam de descrição alternativa adequada. Não é necessário criar preço, compra, carrinho, autenticação ou uma API.
 
 Exemplo de **um** produto, para orientar a escrita dos demais:
 
@@ -29,7 +29,7 @@ Exemplo de **um** produto, para orientar a escrita dos demais:
 name: Mesa modular
 category: Escritório
 description: Uma mesa que acompanha a rotina da equipe.
-image: /content/produtos/mesa-modular/capa.webp
+image: /images/produtos/mesa-modular/capa.webp
 alt: Mesa de madeira clara com estrutura metálica preta
 ---
 
@@ -48,7 +48,7 @@ Exemplo de **um** integrante:
 ---
 name: Ana Lima
 position: Design de produto
-image: /content/equipe/ana-lima/retrato.webp
+image: /images/equipe/ana-lima/retrato.webp
 alt: Retrato ilustrado de Ana Lima
 ---
 
@@ -61,7 +61,7 @@ Esses caminhos ilustram o contrato; adicione os arquivos de imagem correspondent
 ## Roteiro de implementação
 
 1. Acrescente `produtos` e `equipe` a `cms/estrutura.json`, com `folder`, `extension` e todos os campos acima. Inclua `body` como `markdown` e preserve `paginas`.
-2. Crie as pastas `content/produtos/` e `content/equipe/`, os seis documentos e o documento da empresa. Organize as imagens em `public/content/<coleção>/<slug>/` ou preserve `/images/...` caso sejam enviadas pelo editor.
+2. Crie as pastas `content/produtos/` e `content/equipe/`, os seis documentos e o documento da empresa. Organize as imagens em `public/images/<coleção>/<slug>/`, com URLs `/images/<coleção>/<slug>/<arquivo>`, seguindo o Webtech Editor.
 3. Substitua a home de apresentação do lab pela página institucional. Use `getContent("paginas", "empresa")` e `listContent` para as duas novas coleções.
 4. Implemente `ProductCard` e `TeamCard` recebendo dados por props. Use o `slug` nas chaves React. Mantenha a leitura de arquivos e a compilação MDX no servidor.
 5. Crie a rota de detalhe de produtos usando a página editorial existente como referência. Inclua título, imagem, corpo MDX, metadados e tratamento de slug inexistente.
@@ -76,6 +76,7 @@ Rótulos da interface, como “Produtos” e “Voltar”, podem ficar no JSX. N
 - [ ] `/` mostra apresentação da empresa, pelo menos 3 produtos e 3 integrantes.
 - [ ] Os conteúdos e caminhos das imagens vêm dos MDX correspondentes.
 - [ ] O schema descreve as três coleções e seus campos.
+- [ ] Os documentos usam Markdown no corpo e imagens em `/images/...`, conforme o contrato do Webtech Editor.
 - [ ] Os componentes reutilizam props e não contêm um catálogo fixo.
 - [ ] O corpo de `empresa.mdx`, dos produtos e dos integrantes é renderizado.
 - [ ] Cada card de produto leva a `/produtos/<slug>`; slug inexistente mostra 404.

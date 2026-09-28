@@ -67,19 +67,21 @@ Uma chamada ao leitor tem este contrato:
 
 ## Passo 4 — Acrescente uma imagem
 
-Crie `public/content/paginas/nossa-historia/`, coloque uma imagem própria nela e inclua no corpo:
+Crie `public/images/paginas/nossa-historia/`, coloque uma imagem própria nela e inclua no corpo:
 
 ```md
-![Pessoas da equipe organizando um projeto](/content/paginas/nossa-historia/equipe.webp)
+![Pessoas da equipe organizando um projeto](/images/paginas/nossa-historia/equipe.webp)
 ```
 
 A extensão e o nome devem corresponder ao arquivo que você colocou na pasta. Abra a URL da imagem diretamente para conferir. Use um texto alternativo que descreva a informação relevante.
 
-**Checkpoint:** diferencie o caminho no repositório (`public/content/...`) do endereço no navegador (`/content/...`). Se usar upload no editor independente, o endereço será `/images/...`; mantenha o caminho que ele devolver.
+**Checkpoint:** diferencie o caminho no repositório (`public/images/...`) do endereço no navegador (`/images/...`). O Webtech Editor também usa essa organização; mantenha o caminho que ele devolver ao enviar uma imagem.
 
-## Passo 5 — Use um componente no MDX
+## Passo 5 — Entenda o limite entre Markdown e JSX
 
-O exemplo `boas-vindas.mdx` usa:
+O exemplo `boas-vindas.mdx` usa Markdown no corpo para permitir o fluxo de edição do Webtech Editor. A interface é construída pelos componentes React da aplicação.
+
+Como experiência opcional, feita apenas no código, adicione temporariamente este trecho ao documento:
 
 ```mdx
 <Callout title="Experimente">
@@ -95,7 +97,7 @@ O registro acontece no renderizador:
 
 Altere o texto no MDX e o estilo de `.callout` no CSS para observar a divisão de responsabilidades. Não adicione `import` dentro do arquivo: nesta estratégia, o site fornece os componentes ao renderizador. A renderização RSC aceita `source` diretamente, sem a etapa cliente de `serialize`. [Referência](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support).
 
-Esse exercício de JSX é feito no código. A prévia do editor independente usa Markdown e seu editor visual não garante suporte a componentes personalizados. Para os documentos do desafio, prefira Markdown no corpo.
+Depois de observar o resultado no navegador, remova o trecho JSX antes de editar o documento no Webtech Editor. Sua prévia usa Markdown e seu editor visual não garante suporte a componentes personalizados. Mantenha Markdown no corpo dos documentos do desafio.
 
 **Checkpoint:** explique por que um componente JSX desconhecido pelo renderizador pode quebrar a página.
 

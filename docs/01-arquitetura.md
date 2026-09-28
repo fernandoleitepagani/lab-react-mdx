@@ -1,6 +1,6 @@
 # 1. Como a arquitetura funciona
 
-O conteúdo é escrito em MDX, o editor oferece uma interface de edição e o site decide como apresentar cada documento. Um texto pode mudar sem que a pessoa responsável por ele precise alterar um componente React.
+O Webtech Editor é a referência de conteúdo deste lab. Ele lê o schema e os documentos de um repositório GitHub e oferece uma interface de edição. A aplicação Next.js do exercício consome esses arquivos e decide como apresentá-los. Um texto pode mudar sem que a pessoa responsável por ele precise alterar um componente React.
 
 ## As responsabilidades
 
@@ -12,7 +12,7 @@ O conteúdo é escrito em MDX, o editor oferece uma interface de edição e o si
 | Frontmatter | Guardar dados estruturados no início do documento | `title`, `lead`, futuramente `name` e `description` |
 | `estrutura.json` | Descrever coleções, pastas e campos do editor | `cms/estrutura.json` |
 | Leitor | Localizar o arquivo e separar seus dados e corpo | `lib/content.mjs` |
-| `public/` | Disponibilizar arquivos estáticos por URL | `public/content/paginas/boas-vindas/fluxo.svg` |
+| `public/` | Disponibilizar arquivos estáticos por URL | `public/images/paginas/boas-vindas/fluxo.svg` |
 
 ## O percurso de uma página
 
@@ -45,15 +45,15 @@ content/
     ana-lima.mdx
 ```
 
-Aqui `produtos` é o nome da pasta de conteúdo e `mesa-modular` é o nome do arquivo sem extensão. Quando alguém fala em criar `/content/slug/`, vale explicitar qual dessas duas coisas deseja criar. **O padrão adotado neste lab e encontrado no site é `content/<coleção>/<slug>.mdx`**, não `content/<slug>/index.mdx`. O leitor não percorre subpastas de documentos.
+Aqui `produtos` é o nome da pasta de conteúdo e `mesa-modular` é o nome do arquivo sem extensão. **Neste lab, configure `folder` como `content/<coleção>` e `extension` como `mdx`**. O Webtech Editor monta o caminho como `<folder>/<slug>.<extension>`, resultando em `content/<coleção>/<slug>.mdx`. Uma pasta `content/<slug>/index.mdx` não é a organização adotada. O leitor do lab não percorre subpastas de documentos.
 
 Uma pasta por slug é útil para imagens relacionadas:
 
 ```text
-public/content/produtos/mesa-modular/capa.webp
+public/images/produtos/mesa-modular/capa.webp
 ```
 
-No navegador, o endereço dessa imagem é `/content/produtos/mesa-modular/capa.webp`. A pasta `public` desaparece da URL. Um documento dentro de `content/` não é servido como arquivo público; sua apresentação depende de uma rota em `app/`.
+No navegador, o endereço dessa imagem é `/images/produtos/mesa-modular/capa.webp`. A pasta `public` desaparece da URL. Um documento dentro de `content/` não é servido como arquivo público; sua apresentação depende de uma rota em `app/`.
 
 ## Frontmatter e corpo MDX
 
@@ -62,7 +62,7 @@ No navegador, o endereço dessa imagem é `/content/produtos/mesa-modular/capa.w
 name: Mesa modular
 category: Escritório
 description: Uma mesa para diferentes formas de trabalhar.
-image: /content/produtos/mesa-modular/capa.webp
+image: /images/produtos/mesa-modular/capa.webp
 alt: Mesa de madeira clara com estrutura metálica
 ---
 
@@ -73,11 +73,11 @@ O tampo acomoda **duas telas** e os acessórios de trabalho.
 
 O bloco entre `---` é YAML. `gray-matter` devolve esse bloco como `data`, que o leitor renomeia para `frontmatter`, e o restante como `content`. Metadados alimentam cards, títulos e imagens; o corpo descreve o assunto com parágrafos, listas e outros elementos.
 
-MDX permite combinar Markdown com JSX. No exemplo guiado, `<Callout>` é um componente registrado pelo site. Apenas dar a extensão `.mdx` a um arquivo não o transforma numa página: ele precisa ser lido e renderizado. O frontmatter também precisa de um parser, pois não faz parte da sintaxe MDX por si só. [Referências: Next.js](https://nextjs.org/docs/app/guides/mdx), [gray-matter](https://github.com/jonschlinkert/gray-matter).
+MDX permite combinar Markdown com JSX. Para o fluxo do Webtech Editor, este lab usa Markdown no corpo dos documentos: sua prévia usa `marked` e não executa componentes React personalizados. O guia inclui uma experiência opcional com JSX, feita no código da aplicação. Apenas dar a extensão `.mdx` a um arquivo não o transforma numa página: ele precisa ser lido e renderizado. O frontmatter também precisa de um parser, pois não faz parte da sintaxe MDX por si só. [Referências: Next.js](https://nextjs.org/docs/app/guides/mdx), [gray-matter](https://github.com/jonschlinkert/gray-matter).
 
 ## O contrato de `estrutura.json`
 
-O lab usa o formato esperado pelo editor independente:
+O lab usa o formato esperado pelo Webtech Editor:
 
 ```json
 {
@@ -99,23 +99,21 @@ O lab usa o formato esperado pelo editor independente:
 
 `id` é a chave usada no código. `folder` é relativa à raiz do repositório. `extension` não leva ponto. `fields[].name` identifica os campos; `body` representa o corpo, fora do YAML. Esse trecho é um exemplo de coleção: durante o desafio, acrescente a definição à lista existente, preservando `paginas`.
 
-No lab, o leitor consulta `folder` e `extension` e exige `content/<id>` e `mdx`. Ele não valida campos obrigatórios nem todos os tipos do frontmatter. O editor consultado também não implementa um mecanismo completo de validação a partir de `widget`; seus controles dependem de nomes de campos e dos valores. Definir um campo no JSON não garante, sozinho, sua exibição na página ou sua validação.
+No lab, o leitor consulta `folder` e `extension` e exige `content/<id>` e `mdx`. Ele não valida campos obrigatórios nem todos os tipos do frontmatter. O Webtech Editor também não implementa um mecanismo completo de validação a partir de `widget`; seus controles dependem de nomes de campos e dos valores. Definir um campo no JSON não garante, sozinho, sua exibição na página ou sua validação.
 
-## Relação com os projetos Webtech
+## Contrato observado no Webtech Editor
 
-Leitura realizada em 28/09/2026, com os checkouts sem alterações locais: `site-webtech-novo` em `a180f01` e `app-webtech-editor` em `56dbe81`. Os caminhos abaixo são relativos a cada repositório, para que o guia possa ser compartilhado.
+Referência: `app-webtech-editor`, revisão `56dbe81`, consultada em 28/09/2026. Os caminhos abaixo são relativos ao repositório do editor.
 
-| Aspecto | Novo site Webtech | Webtech Editor independente | Escolha do lab |
-| --- | --- | --- | --- |
-| Schema | `estrutura.json` na raiz tem modelos `frontmatter`; `lib/cms-schema.mjs` também mantém coleções e templates em código | Busca `cms/estrutura.json` com `folder`, `extension` e `fields` | Um único `cms/estrutura.json` no formato do editor |
-| Leitura | `lib/content.js` delega para `getPublished`/`listPublished` de `lib/backend/content.mjs`; essas funções leem MDX do disco | Consulta pastas e documentos pelo GitHub | Leitor local simplificado, sem autenticação |
-| Renderização | Rotas como `app/projetos/[slug]/page.js` usam `MDXRemote` | `app/api/cms/preview/route.ts` usa `marked` para prévia genérica | `MDXRemote` no servidor |
-| Imagens | Exemplos em `public/content/<coleção>/<slug>/` | Upload usa `/images/<coleção>/<slug>/...`, publicado em `public/images/...` | Exemplo manual em `public/content`; uploads do editor seguem `public/images` |
-| Equipe | `lib/team.js` combina GitHub, conteúdo editorial MDX e badges | Edita os documentos das coleções cadastradas | Equipe inteiramente em MDX, como requisito didático |
+| Aspecto | Comportamento do Webtech Editor | Aplicação no lab |
+| --- | --- | --- |
+| Schema | `app/editor/[owner]/[repo]/page.tsx` lê `cms/estrutura.json` | Manter esse caminho e cadastrar as coleções em `collections` |
+| Documentos | O catálogo consulta `folder` e `extension`; `lib/cms-publish.mjs` monta o caminho do arquivo | Usar `content/<coleção>/<slug>.mdx` e consumir os arquivos no servidor |
+| Campos | `components/cms/NewContentDialog.js` inicia campos de `fields`, deixando `body` fora do frontmatter | Modelar metadados simples e corpo Markdown |
+| Imagens | `components/cms/CmsEditor.js` usa `/images/<coleção>/<slug>/<arquivo>`; a publicação grava em `public/images/...` | Usar o mesmo caminho nos exemplos e no desafio |
+| Prévia | `app/api/cms/preview/route.ts` gera uma prévia genérica com `marked` | Conferir o layout final na aplicação Next.js; a prévia não executa suas páginas React |
 
-O nome `backend` não significa que os textos estejam sendo buscados no banco: na revisão consultada, o código de conteúdo publicado lê o filesystem. Documentos antigos de arquitetura podem refletir etapas anteriores da migração.
-
-As duas variantes de schema não são intercambiáveis sem adaptação. Este lab explicita um contrato de referência; ele não modifica nem unifica os projetos Webtech.
+O upload do editor aceita PNG, JPEG, GIF, WebP e AVIF. O SVG do exemplo é um recurso já versionado no repositório; para praticar o upload, use um dos formatos aceitos.
 
 ## Servidor e publicação
 

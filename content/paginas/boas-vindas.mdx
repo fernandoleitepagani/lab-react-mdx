@@ -12,16 +12,14 @@ Este parágrafo vem de `content/paginas/boas-vindas.mdx`. O título e a abertura
 3. O Next.js carrega o documento no servidor.
 4. O React monta a página e o `MDXRemote` renderiza este texto.
 
-## Conteúdo com componentes
+## Conteúdo editável
 
-<Callout title="Experimente no código">
-  Altere este texto e o campo `title` no arquivo MDX. Recarregue a página e observe onde cada mudança aparece.
-</Callout>
+> Altere este texto e o campo `title` no arquivo MDX. Recarregue a página e observe onde cada mudança aparece.
 
-O componente `Callout` está registrado em `components/EditorialContent.js`. Ele recebe conteúdo por props e mantém o visual no React.
+Este documento usa Markdown no corpo, seguindo o fluxo de edição do Webtech Editor. Os componentes React da aplicação definem sua apresentação.
 
 ## Uma imagem também tem endereço
 
-![Diagrama com as etapas MDX, leitor e página React](/content/paginas/boas-vindas/fluxo.svg)
+![Diagrama com as etapas MDX, leitor e página React](/images/paginas/boas-vindas/fluxo.svg)
 
-A imagem está em `public/content/paginas/boas-vindas/fluxo.svg`. O prefixo `public` não aparece na URL.
+A imagem está em `public/images/paginas/boas-vindas/fluxo.svg`. O prefixo `public` não aparece na URL.
