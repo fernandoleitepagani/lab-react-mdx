@@ -14,7 +14,7 @@ export default async function Home() {
           <li key={slug} className="card"><h3><Link href={`/paginas/${slug}`}>{frontmatter.title || slug}</Link></h3><p>{frontmatter.lead}</p></li>
         ))}</ul> : <p>Nenhuma página cadastrada.</p>}
       </section>
-      <section><h2>Seu próximo passo</h2><p>Siga o README e o guia em docs/. O desafio está em DESAFIO.md: substitua esta abertura pela apresentação da sua empresa e acrescente produtos e equipe carregados dos arquivos MDX.</p></section>
+      <section><h2>Seu próximo passo</h2><p>O README reúne toda a orientação de React, Next.js e MDX. Depois da prática guiada, siga o DESAFIO.md para construir a página da sua empresa com produtos e equipe carregados dos arquivos MDX.</p></section>
     </>
   );
 }

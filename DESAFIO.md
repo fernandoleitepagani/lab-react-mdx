@@ -1,5 +1,7 @@
 # Desafio — Uma empresa, seus produtos e sua equipe
 
+Esta é a atividade prática do lab. A orientação de React, Next.js, MDX e do contrato do Webtech Editor está reunida no [guia básico](README.md). Conclua a página de exemplo do guia antes de iniciar.
+
 A **Aurora Studio**, empresa fictícia de produtos para espaços de trabalho, precisa de uma página institucional. A equipe de comunicação deve conseguir cadastrar produtos, apresentar as pessoas e revisar os textos pelo Webtech Editor, sem editar componentes React. Modele os arquivos conforme o contrato do editor; a execução e a avaliação local não exigem autenticação no GitHub.
 
 Você pode criar outro nome e identidade visual. Os dados devem ser fictícios. O objetivo é exercitar a arquitetura de conteúdo, não copiar o visual do Webtech.
@@ -110,3 +112,5 @@ Inclua `ENTREGA.md` com instruções de execução, capturas de tela em desktop,
 | Verificação de novos documentos e explicação da arquitetura | 20 |
 
 O teste decisivo de conteúdo é obrigatório: um layout completo com dados fixos não demonstra a competência central deste lab.
+
+[Voltar ao guia básico](README.md).
