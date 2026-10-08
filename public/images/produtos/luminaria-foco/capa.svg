@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Luminária articulada de metal preto com base circular">
+  <rect width="800" height="600" fill="#fdf3d8"/>
+  <ellipse cx="400" cy="510" rx="120" ry="18" fill="#20212a"/>
+  <rect x="392" y="320" width="16" height="180" fill="#20212a"/>
+  <rect x="400" y="200" width="16" height="130" fill="#20212a" transform="rotate(-25 400 300)"/>
+  <circle cx="470" cy="180" r="60" fill="#f0c34a"/>
+  <circle cx="470" cy="180" r="40" fill="#fbe39a"/>
+  <polygon points="470,180 720,270 720,90" fill="#fbe39a" opacity="0.55"/>
+</svg>

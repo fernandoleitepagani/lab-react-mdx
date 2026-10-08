@@ -26,3 +26,72 @@ code { font-size: .9em; }
 footer { border-top: 1px solid var(--line); color: var(--muted); padding-block: 2rem; }
 .skip-link { position: absolute; top: -100px; left: 1rem; background: white; padding: .8rem; }
 .skip-link:focus { top: 1rem; }
+
+/* Cards com mídia (produtos e equipe) */
+.card--media { position: relative; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.card--media .card-media { display: block; aspect-ratio: 4 / 3; background: #eeeef4; overflow: hidden; }
+.card--media .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card--media .card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: .35rem; }
+.card--media .card-body .eyebrow { margin: 0; }
+.card--media .card-body h3 { margin: 0; }
+.card--media .card-body p { margin: 0; }
+.card--media .card-body .prose { max-width: none; }
+.card--media .card-body .prose :where(h1, h2, h3) { margin-top: .75rem; }
+.card--media .card-body .prose p { margin-block: .35rem 0; }
+
+.card--team .card-media { aspect-ratio: 1 / 1; }
+
+/* Link esticado: um único link no título cobre o card inteiro */
+.card--media .card-link::after { content: ""; position: absolute; inset: 0; }
+.card--media:focus-within { outline: 3px solid var(--purple); outline-offset: 3px; }
+.card--media .card-link:focus-visible { outline: none; }
+
+/* Navegação entre seções da home */
+.section-nav { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; }
+.section-nav a { font-weight: 700; }
+section[id] { scroll-margin-top: 1.5rem; }
+
+/* Detalhe do produto */
+.product-cover { margin-block: 2rem; border-radius: 1rem; overflow: hidden; background: #eeeef4; }
+.product-cover img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.back-link { margin-top: 3rem; }
+
+/* ---------------------------------------------------------- */
+/* Fase 6 — Responsividade e acessibilidade                    */
+/* ---------------------------------------------------------- */
+
+/* Rolagem suave nos anchors, respeitando preferências do usuário. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Garante que nenhum filho do grid estoure a largura em telas estreitas (390px). */
+.grid > * { min-width: 0; }
+
+/* Palavras longas nas descrições/biografias não quebram o layout do card. */
+.card--media .card-body { overflow-wrap: anywhere; }
+
+/* Salvaguarda contra rolagem horizontal inesperada em telas muito estreitas. */
+body { overflow-x: clip; }
+
+/* Foco visível consistente nos links de navegação e no "back link". */
+.section-nav a:focus-visible,
+.back-link a:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+  border-radius: .25rem;
+}
+
+/* ---------------------------------------------------------- */
+/* Fase 7 — Estados vazios                                     */
+/* ---------------------------------------------------------- */
+
+.empty {
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+  color: var(--muted);
+  max-width: 60ch;
+}

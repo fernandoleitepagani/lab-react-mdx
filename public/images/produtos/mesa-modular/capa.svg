@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Mesa de madeira clara com estrutura metálica preta">
+  <rect width="800" height="600" fill="#f0eafa"/>
+  <rect x="60" y="300" width="680" height="36" rx="6" fill="#c7a17a"/>
+  <rect x="90" y="336" width="22" height="180" fill="#20212a"/>
+  <rect x="688" y="336" width="22" height="180" fill="#20212a"/>
+  <rect x="90" y="500" width="620" height="16" rx="4" fill="#20212a"/>
+  <rect x="240" y="230" width="160" height="70" rx="6" fill="#20212a"/>
+  <rect x="260" y="250" width="120" height="30" rx="3" fill="#6234a1"/>
+</svg>

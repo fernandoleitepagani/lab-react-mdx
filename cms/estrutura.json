@@ -10,6 +10,33 @@
         { "name": "lead", "label": "Abertura", "widget": "text" },
         { "name": "body", "label": "Conteúdo", "widget": "markdown" }
       ]
+    },
+    {
+      "id": "produtos",
+      "label": "Produtos",
+      "folder": "content/produtos",
+      "extension": "mdx",
+      "fields": [
+        { "name": "name", "label": "Nome", "widget": "string" },
+        { "name": "category", "label": "Categoria", "widget": "string" },
+        { "name": "description", "label": "Descrição", "widget": "text" },
+        { "name": "image", "label": "Imagem", "widget": "string" },
+        { "name": "alt", "label": "Texto alternativo", "widget": "string" },
+        { "name": "body", "label": "Conteúdo", "widget": "markdown" }
+      ]
+    },
+    {
+      "id": "equipe",
+      "label": "Equipe",
+      "folder": "content/equipe",
+      "extension": "mdx",
+      "fields": [
+        { "name": "name", "label": "Nome", "widget": "string" },
+        { "name": "position", "label": "Cargo", "widget": "string" },
+        { "name": "image", "label": "Imagem", "widget": "string" },
+        { "name": "alt", "label": "Texto alternativo", "widget": "string" },
+        { "name": "body", "label": "Biografia", "widget": "markdown" }
+      ]
     }
   ]
 }

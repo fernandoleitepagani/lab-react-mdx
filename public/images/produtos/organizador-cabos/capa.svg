@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Canaleta de tecido cinza fixada sob uma mesa de madeira">
+  <rect width="800" height="600" fill="#eef0f4"/>
+  <rect x="100" y="180" width="600" height="28" rx="4" fill="#c7a17a"/>
+  <rect x="140" y="208" width="520" height="80" rx="10" fill="#7c828f"/>
+  <rect x="140" y="208" width="520" height="14" rx="7" fill="#5b606b"/>
+  <circle cx="220" cy="248" r="8" fill="#20212a"/>
+  <circle cx="400" cy="248" r="8" fill="#20212a"/>
+  <circle cx="580" cy="248" r="8" fill="#20212a"/>
+  <path d="M220 256 Q260 340 400 340 T580 256" stroke="#20212a" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
